@@ -1,22 +1,18 @@
 *{
-
 margin:0;
-
 padding:0;
-
 box-sizing:border-box;
-
 }
 
 body{
 
+overflow:hidden;
+
 font-family:Poppins,sans-serif;
 
-background:#07192f;
+background:#06172d;
 
 height:100vh;
-
-overflow:hidden;
 
 display:flex;
 
@@ -28,25 +24,20 @@ align-items:center;
 
 /* Background */
 
-body::before{
+#background{
 
-content:"";
-
-position:absolute;
+position:fixed;
 
 width:100%;
 
 height:100%;
 
 background:
-
 radial-gradient(circle at top,
+#1f4f97,
+#07192f 65%);
 
-#173a72,
-
-#07192f 70%);
-
-z-index:-3;
+z-index:-5;
 
 }
 
@@ -54,7 +45,7 @@ z-index:-3;
 
 #stars{
 
-position:absolute;
+position:fixed;
 
 width:100%;
 
@@ -62,17 +53,17 @@ height:100%;
 
 background-image:
 
-radial-gradient(white 1px, transparent 1px);
+radial-gradient(#fff 1px,transparent 1px);
 
 background-size:45px 45px;
 
-opacity:.35;
+opacity:.28;
 
-animation:moveStars 80s linear infinite;
+animation:stars 90s linear infinite;
 
 }
 
-@keyframes moveStars{
+@keyframes stars{
 
 from{
 
@@ -82,134 +73,23 @@ transform:translateY(0);
 
 to{
 
-transform:translateY(-600px);
+transform:translateY(-1200px);
 
 }
 
 }
 
-/* Card */
+/* Book */
 
-.cover{
+.scene{
 
-width:100%;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
+perspective:2400px;
 
 }
 
-.glass{
+#book{
 
-width:700px;
-
-max-width:90%;
-
-padding:60px;
-
-border-radius:30px;
-
-background:rgba(255,255,255,.08);
-
-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,.15);
-
-box-shadow:
-
-0 0 60px rgba(0,0,0,.4);
-
-text-align:center;
-
-}
-
-h1{
-
-font-size:58px;
-
-color:#FFD86B;
-
-font-family:'Cormorant Garamond',serif;
-
-margin-bottom:10px;
-
-}
-
-h2{
-
-font-size:34px;
-
-color:white;
-
-margin-bottom:25px;
-
-}
-
-p{
-
-color:#ddd;
-
-font-size:20px;
-
-line-height:1.8;
-
-margin-bottom:40px;
-
-}
-
-button{
-
-background:#FFD86B;
-
-color:#0a1f44;
-
-padding:18px 45px;
-
-border:none;
-
-border-radius:50px;
-
-font-size:20px;
-
-cursor:pointer;
-
-transition:.35s;
-
-font-weight:bold;
-
-}
-
-button:hover{
-
-transform:scale(1.08);
-
-box-shadow:
-
-0 0 25px gold;
-
-}
-.book-container{
-
-width:100%;
-
-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-perspective:2500px;
-
-}
-
-.book{
-
-width:700px;
+width:720px;
 
 height:500px;
 
@@ -229,37 +109,34 @@ width:100%;
 
 height:100%;
 
-background:#fefcf7;
-
 border-radius:12px;
+
+overflow:hidden;
 
 box-shadow:
 
-0 30px 80px rgba(0,0,0,.35);
+0 30px 80px rgba(0,0,0,.45);
+
+}
+
+/* Cover */
+
+.cover{
+
+background:
+
+linear-gradient(
+135deg,
+#0d2f67,
+#234f9d);
+
+border:3px solid #d4af37;
 
 display:flex;
 
 justify-content:center;
 
 align-items:center;
-
-padding:60px;
-
-backface-visibility:hidden;
-
-}
-
-.cover{
-
-background:
-
-linear-gradient(145deg,
-
-#0d2f67,
-
-#163d86);
-
-color:white;
 
 }
 
@@ -269,11 +146,11 @@ content:"";
 
 position:absolute;
 
-inset:15px;
+inset:18px;
 
-border:2px solid gold;
+border:2px solid rgba(255,215,0,.45);
 
-border-radius:10px;
+border-radius:8px;
 
 }
 
@@ -281,50 +158,74 @@ border-radius:10px;
 
 text-align:center;
 
-max-width:500px;
+padding:50px;
+
+max-width:540px;
 
 }
 
-.page-content{
+.cover h1{
 
-text-align:center;
+font-family:'Cormorant Garamond',serif;
 
-max-width:520px;
+font-size:68px;
 
-}
+color:#ffd86b;
 
-.page h1{
-
-font-size:50px;
-
-margin-bottom:15px;
-
-color:#d6aa32;
+margin-bottom:10px;
 
 }
 
-.page h2{
+.cover h2{
+
+font-size:34px;
+
+color:white;
 
 margin-bottom:30px;
 
-font-size:28px;
-
-color:#17386d;
-
 }
 
-.page p{
+.cover p{
 
 font-size:20px;
 
 line-height:1.8;
 
-color:#555;
+color:#ececec;
+
+margin-bottom:45px;
 
 }
 
-.next{
+#startBtn{
 
-margin-top:40px;
+background:#ffd86b;
+
+color:#10264b;
+
+border:none;
+
+padding:18px 45px;
+
+border-radius:50px;
+
+font-size:20px;
+
+cursor:pointer;
+
+transition:.35s;
+
+font-weight:bold;
+
+}
+
+#startBtn:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+
+0 0 30px gold;
 
 }
